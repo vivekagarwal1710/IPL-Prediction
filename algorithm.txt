@@ -1,0 +1,26 @@
+Algorithm:
+1. Data preprocessing:
+   All the required libraries are imported and the statistics of the previous matches are read.
+   numpy: library used for working with arrays
+   pandas: usedfor handling the dataset
+   train_test_split from sklearn.model_selection: used for splitting training and testing data
+   DecisionTreeRegressor from sklearn.tree: training of model
+2. Data cleaning:
+   The missing data is imputed.
+   Only the required columns are retained and columns of no significnace (like legbyes, season, wide, penalty, noballs, other_wicket_type, other_player_dismissed, byes)
+   are dropped. In a similar way the teams are also filtered that is, the teams in the present season of IPL are retained and the rest are ignored. The venues are also
+   updated by removing the duplicate venues and updating the file.
+   The data from the first six overs is retained and the remaining are discareded
+3. Model Training:
+   Label encoders are created for the categorical variables and the data is split to train and test.The model is fed with the data from the first six overs and an 
+   algorithm is created to correlate the processed output against the sampled output. In this process, all the player's names are made note of and the list of players 
+   is a mapped to an index value and  this result is stored in a dictionary. The venues are also stored in a a similar fashion.
+   The first and second innings are calculated accordingly.
+   The imputed and the dummy variables are passed into the modelling process.
+   A DecisionTreeRegressor is used in this process. It observes features of an object and trains a model in the structure of a tree to predict data in the future to 
+   produce a meaningful output. The training model runs through the input dataset. It contais the sample output data for the given inputs. The model is fed with the 
+   data from the first six overs and an algorithm is created to correlate the processed output against the sampled output. In this process, all the player's names are 
+   made note of and the list of players is a mapped to an index value and  this result is stored in a dictionary. The venues are also stored in a a similar fashion.
+   The first and second innings are calculated accordingly.
+4. Data prediction:
+   Enables us to predict the labels of the data values on the basis of the trained model. The performaance is checked and the predictions are made accordingly.
